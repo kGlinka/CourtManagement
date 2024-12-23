@@ -1,0 +1,13 @@
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\bin\Debug\CourtManagement.exe.config
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\bin\Debug\CourtManagement.exe
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\bin\Debug\CourtManagement.pdb
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\obj\Debug\CourtManagement.csproj.AssemblyReference.cache
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\obj\Debug\CourtManagement.Login.FmLogin.resources
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\obj\Debug\CourtManagement.Properties.Resources.resources
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\obj\Debug\CourtManagement.csproj.GenerateResource.cache
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\obj\Debug\CourtManagement.csproj.CoreCompileInputs.cache
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\obj\Debug\CourtManagement.exe
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\obj\Debug\CourtManagement.pdb
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\obj\Debug\CourtManagement.Reservation.FmReservation.resources
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\obj\Debug\CourtManagement.Login.FmRegistration.resources
+C:\Users\puszk\Desktop\C#\Projekt\CourtManagement\CourtManagement\obj\Debug\CourtManagement.FmMain.resources
