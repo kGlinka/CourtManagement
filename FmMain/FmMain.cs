@@ -25,7 +25,7 @@ namespace CourtManagement
 
         private void BtnStormCourt_Click(object sender, EventArgs e)
         {
-            FmReservation reservation = new FmReservation();
+            FmReservation reservation = new FmReservation(1);
             reservation.Show();
         }
 

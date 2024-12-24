@@ -38,20 +38,20 @@ namespace CourtManagement.Reservation
             this.contextMenuStripReservation = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAddReservation = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemDeleteReservation = new System.Windows.Forms.ToolStripMenuItem();
-            this.reservationSelectByDateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dsReservation = new CourtManagement.Reservation.DsReservation();
             this.panelDate = new System.Windows.Forms.Panel();
             this.dateTimePickerReservation = new System.Windows.Forms.DateTimePicker();
+            this.reservationSelectByDateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dsReservation = new CourtManagement.Reservation.DsReservation();
             this.reservationSelectByDateTableAdapter = new CourtManagement.Reservation.DsReservationTableAdapters.reservationSelectByDateTableAdapter();
             this.timeslotDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_reservation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isreservedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idclientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_reservation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvReservation)).BeginInit();
             this.contextMenuStripReservation.SuspendLayout();
+            this.panelDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reservationSelectByDateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReservation)).BeginInit();
-            this.panelDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // DgvReservation
@@ -68,9 +68,9 @@ namespace CourtManagement.Reservation
             this.DgvReservation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvReservation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.timeslotDataGridViewTextBoxColumn,
-            this.id_reservation,
             this.isreservedDataGridViewTextBoxColumn,
-            this.idclientDataGridViewTextBoxColumn});
+            this.idclientDataGridViewTextBoxColumn,
+            this.id_reservation});
             this.DgvReservation.ContextMenuStrip = this.contextMenuStripReservation;
             this.DgvReservation.DataSource = this.reservationSelectByDateBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -84,6 +84,7 @@ namespace CourtManagement.Reservation
             this.DgvReservation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgvReservation.Location = new System.Drawing.Point(0, 60);
             this.DgvReservation.Name = "DgvReservation";
+            this.DgvReservation.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -94,6 +95,7 @@ namespace CourtManagement.Reservation
             this.DgvReservation.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DgvReservation.RowHeadersWidth = 51;
             this.DgvReservation.RowTemplate.Height = 24;
+            this.DgvReservation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvReservation.Size = new System.Drawing.Size(288, 390);
             this.DgvReservation.TabIndex = 0;
             // 
@@ -120,16 +122,6 @@ namespace CourtManagement.Reservation
             this.toolStripMenuItemDeleteReservation.Text = "Usuń rezerwację";
             this.toolStripMenuItemDeleteReservation.Click += new System.EventHandler(this.toolStripMenuItemDeleteReservation_Click);
             // 
-            // reservationSelectByDateBindingSource
-            // 
-            this.reservationSelectByDateBindingSource.DataMember = "reservationSelectByDate";
-            this.reservationSelectByDateBindingSource.DataSource = this.dsReservation;
-            // 
-            // dsReservation
-            // 
-            this.dsReservation.DataSetName = "DsReservation";
-            this.dsReservation.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // panelDate
             // 
             this.panelDate.Controls.Add(this.dateTimePickerReservation);
@@ -148,6 +140,16 @@ namespace CourtManagement.Reservation
             this.dateTimePickerReservation.TabIndex = 0;
             this.dateTimePickerReservation.ValueChanged += new System.EventHandler(this.dateTimePickerReservation_ValueChanged);
             // 
+            // reservationSelectByDateBindingSource
+            // 
+            this.reservationSelectByDateBindingSource.DataMember = "reservationSelectByDate";
+            this.reservationSelectByDateBindingSource.DataSource = this.dsReservation;
+            // 
+            // dsReservation
+            // 
+            this.dsReservation.DataSetName = "DsReservation";
+            this.dsReservation.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // reservationSelectByDateTableAdapter
             // 
             this.reservationSelectByDateTableAdapter.ClearBeforeFill = true;
@@ -160,13 +162,6 @@ namespace CourtManagement.Reservation
             this.timeslotDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.timeslotDataGridViewTextBoxColumn.Name = "timeslotDataGridViewTextBoxColumn";
             this.timeslotDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // id_reservation
-            // 
-            this.id_reservation.DataPropertyName = "id_reservation";
-            this.id_reservation.HeaderText = "id_reservation";
-            this.id_reservation.Name = "id_reservation";
-            this.id_reservation.ReadOnly = true;
             // 
             // isreservedDataGridViewTextBoxColumn
             // 
@@ -184,8 +179,17 @@ namespace CourtManagement.Reservation
             this.idclientDataGridViewTextBoxColumn.HeaderText = "id_client";
             this.idclientDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idclientDataGridViewTextBoxColumn.Name = "idclientDataGridViewTextBoxColumn";
+            this.idclientDataGridViewTextBoxColumn.ReadOnly = true;
             this.idclientDataGridViewTextBoxColumn.Visible = false;
             this.idclientDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // id_reservation
+            // 
+            this.id_reservation.DataPropertyName = "id_reservation";
+            this.id_reservation.HeaderText = "id_reservation";
+            this.id_reservation.Name = "id_reservation";
+            this.id_reservation.ReadOnly = true;
+            this.id_reservation.Visible = false;
             // 
             // FmReservation
             // 
@@ -198,9 +202,9 @@ namespace CourtManagement.Reservation
             this.Load += new System.EventHandler(this.FmReservation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvReservation)).EndInit();
             this.contextMenuStripReservation.ResumeLayout(false);
+            this.panelDate.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reservationSelectByDateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReservation)).EndInit();
-            this.panelDate.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -217,8 +221,8 @@ namespace CourtManagement.Reservation
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddReservation;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDeleteReservation;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeslotDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_reservation;
         private System.Windows.Forms.DataGridViewTextBoxColumn isreservedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idclientDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_reservation;
     }
 }
