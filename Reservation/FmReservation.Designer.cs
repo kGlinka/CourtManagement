@@ -35,22 +35,23 @@ namespace CourtManagement.Reservation
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DgvReservation = new System.Windows.Forms.DataGridView();
-            this.timeslotDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isreservedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idclientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStripReservation = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemAddReservation = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDeleteReservation = new System.Windows.Forms.ToolStripMenuItem();
             this.reservationSelectByDateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsReservation = new CourtManagement.Reservation.DsReservation();
             this.panelDate = new System.Windows.Forms.Panel();
             this.dateTimePickerReservation = new System.Windows.Forms.DateTimePicker();
             this.reservationSelectByDateTableAdapter = new CourtManagement.Reservation.DsReservationTableAdapters.reservationSelectByDateTableAdapter();
-            this.contextMenuStripReservation = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemAddReservation = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemDeleteReservation = new System.Windows.Forms.ToolStripMenuItem();
+            this.timeslotDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_reservation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isreservedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idclientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvReservation)).BeginInit();
+            this.contextMenuStripReservation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reservationSelectByDateBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReservation)).BeginInit();
             this.panelDate.SuspendLayout();
-            this.contextMenuStripReservation.SuspendLayout();
             this.SuspendLayout();
             // 
             // DgvReservation
@@ -67,6 +68,7 @@ namespace CourtManagement.Reservation
             this.DgvReservation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvReservation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.timeslotDataGridViewTextBoxColumn,
+            this.id_reservation,
             this.isreservedDataGridViewTextBoxColumn,
             this.idclientDataGridViewTextBoxColumn});
             this.DgvReservation.ContextMenuStrip = this.contextMenuStripReservation;
@@ -95,33 +97,28 @@ namespace CourtManagement.Reservation
             this.DgvReservation.Size = new System.Drawing.Size(288, 390);
             this.DgvReservation.TabIndex = 0;
             // 
-            // timeslotDataGridViewTextBoxColumn
+            // contextMenuStripReservation
             // 
-            this.timeslotDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.timeslotDataGridViewTextBoxColumn.DataPropertyName = "time_slot";
-            this.timeslotDataGridViewTextBoxColumn.HeaderText = "Godzina";
-            this.timeslotDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.timeslotDataGridViewTextBoxColumn.Name = "timeslotDataGridViewTextBoxColumn";
-            this.timeslotDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contextMenuStripReservation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAddReservation,
+            this.toolStripMenuItemDeleteReservation});
+            this.contextMenuStripReservation.Name = "contextMenuStripReservation";
+            this.contextMenuStripReservation.Size = new System.Drawing.Size(164, 48);
+            this.contextMenuStripReservation.Text = "Dodaj rezerwacje";
             // 
-            // isreservedDataGridViewTextBoxColumn
+            // toolStripMenuItemAddReservation
             // 
-            this.isreservedDataGridViewTextBoxColumn.DataPropertyName = "is_reserved";
-            this.isreservedDataGridViewTextBoxColumn.HeaderText = "is_reserved";
-            this.isreservedDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.isreservedDataGridViewTextBoxColumn.Name = "isreservedDataGridViewTextBoxColumn";
-            this.isreservedDataGridViewTextBoxColumn.ReadOnly = true;
-            this.isreservedDataGridViewTextBoxColumn.Visible = false;
-            this.isreservedDataGridViewTextBoxColumn.Width = 125;
+            this.toolStripMenuItemAddReservation.Name = "toolStripMenuItemAddReservation";
+            this.toolStripMenuItemAddReservation.Size = new System.Drawing.Size(163, 22);
+            this.toolStripMenuItemAddReservation.Text = "Dodaj rezerwacje";
+            this.toolStripMenuItemAddReservation.Click += new System.EventHandler(this.toolStripMenuItemAddReservation_Click);
             // 
-            // idclientDataGridViewTextBoxColumn
+            // toolStripMenuItemDeleteReservation
             // 
-            this.idclientDataGridViewTextBoxColumn.DataPropertyName = "id_client";
-            this.idclientDataGridViewTextBoxColumn.HeaderText = "id_client";
-            this.idclientDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idclientDataGridViewTextBoxColumn.Name = "idclientDataGridViewTextBoxColumn";
-            this.idclientDataGridViewTextBoxColumn.Visible = false;
-            this.idclientDataGridViewTextBoxColumn.Width = 125;
+            this.toolStripMenuItemDeleteReservation.Name = "toolStripMenuItemDeleteReservation";
+            this.toolStripMenuItemDeleteReservation.Size = new System.Drawing.Size(163, 22);
+            this.toolStripMenuItemDeleteReservation.Text = "Usuń rezerwację";
+            this.toolStripMenuItemDeleteReservation.Click += new System.EventHandler(this.toolStripMenuItemDeleteReservation_Click);
             // 
             // reservationSelectByDateBindingSource
             // 
@@ -155,28 +152,40 @@ namespace CourtManagement.Reservation
             // 
             this.reservationSelectByDateTableAdapter.ClearBeforeFill = true;
             // 
-            // contextMenuStripReservation
+            // timeslotDataGridViewTextBoxColumn
             // 
-            this.contextMenuStripReservation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItemAddReservation,
-            this.toolStripMenuItemDeleteReservation});
-            this.contextMenuStripReservation.Name = "contextMenuStripReservation";
-            this.contextMenuStripReservation.Size = new System.Drawing.Size(164, 48);
-            this.contextMenuStripReservation.Text = "Dodaj rezerwacje";
+            this.timeslotDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.timeslotDataGridViewTextBoxColumn.DataPropertyName = "time_slot";
+            this.timeslotDataGridViewTextBoxColumn.HeaderText = "Godzina";
+            this.timeslotDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.timeslotDataGridViewTextBoxColumn.Name = "timeslotDataGridViewTextBoxColumn";
+            this.timeslotDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // toolStripMenuItemAddReservation
+            // id_reservation
             // 
-            this.toolStripMenuItemAddReservation.Name = "toolStripMenuItemAddReservation";
-            this.toolStripMenuItemAddReservation.Size = new System.Drawing.Size(163, 22);
-            this.toolStripMenuItemAddReservation.Text = "Dodaj rezerwacje";
-            this.toolStripMenuItemAddReservation.Click += new System.EventHandler(this.toolStripMenuItemAddReservation_Click);
+            this.id_reservation.DataPropertyName = "id_reservation";
+            this.id_reservation.HeaderText = "id_reservation";
+            this.id_reservation.Name = "id_reservation";
+            this.id_reservation.ReadOnly = true;
             // 
-            // toolStripMenuItemDeleteReservation
+            // isreservedDataGridViewTextBoxColumn
             // 
-            this.toolStripMenuItemDeleteReservation.Name = "toolStripMenuItemDeleteReservation";
-            this.toolStripMenuItemDeleteReservation.Size = new System.Drawing.Size(163, 22);
-            this.toolStripMenuItemDeleteReservation.Text = "Usuń rezerwację";
-            this.toolStripMenuItemDeleteReservation.Click += new System.EventHandler(this.toolStripMenuItemDeleteReservation_Click);
+            this.isreservedDataGridViewTextBoxColumn.DataPropertyName = "is_reserved";
+            this.isreservedDataGridViewTextBoxColumn.HeaderText = "is_reserved";
+            this.isreservedDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.isreservedDataGridViewTextBoxColumn.Name = "isreservedDataGridViewTextBoxColumn";
+            this.isreservedDataGridViewTextBoxColumn.ReadOnly = true;
+            this.isreservedDataGridViewTextBoxColumn.Visible = false;
+            this.isreservedDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idclientDataGridViewTextBoxColumn
+            // 
+            this.idclientDataGridViewTextBoxColumn.DataPropertyName = "id_client";
+            this.idclientDataGridViewTextBoxColumn.HeaderText = "id_client";
+            this.idclientDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idclientDataGridViewTextBoxColumn.Name = "idclientDataGridViewTextBoxColumn";
+            this.idclientDataGridViewTextBoxColumn.Visible = false;
+            this.idclientDataGridViewTextBoxColumn.Width = 125;
             // 
             // FmReservation
             // 
@@ -188,10 +197,10 @@ namespace CourtManagement.Reservation
             this.Text = "FmReservation";
             this.Load += new System.EventHandler(this.FmReservation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvReservation)).EndInit();
+            this.contextMenuStripReservation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reservationSelectByDateBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsReservation)).EndInit();
             this.panelDate.ResumeLayout(false);
-            this.contextMenuStripReservation.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -204,11 +213,12 @@ namespace CourtManagement.Reservation
         private DsReservationTableAdapters.reservationSelectByDateTableAdapter reservationSelectByDateTableAdapter;
         private System.Windows.Forms.Panel panelDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerReservation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timeslotDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isreservedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idclientDataGridViewTextBoxColumn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripReservation;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddReservation;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDeleteReservation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeslotDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_reservation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isreservedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idclientDataGridViewTextBoxColumn;
     }
 }

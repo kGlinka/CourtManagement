@@ -43,20 +43,20 @@ namespace CourtManagement.Login
             // 
             this.txbLogin.BackColor = System.Drawing.Color.Silver;
             this.txbLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbLogin.Location = new System.Drawing.Point(162, 17);
-            this.txbLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbLogin.Location = new System.Drawing.Point(122, 14);
+            this.txbLogin.Margin = new System.Windows.Forms.Padding(2);
             this.txbLogin.Name = "txbLogin";
-            this.txbLogin.Size = new System.Drawing.Size(125, 15);
+            this.txbLogin.Size = new System.Drawing.Size(94, 13);
             this.txbLogin.TabIndex = 0;
             // 
             // txbPassword
             // 
             this.txbPassword.BackColor = System.Drawing.Color.Silver;
             this.txbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbPassword.Location = new System.Drawing.Point(162, 38);
-            this.txbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txbPassword.Location = new System.Drawing.Point(122, 31);
+            this.txbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txbPassword.Name = "txbPassword";
-            this.txbPassword.Size = new System.Drawing.Size(125, 15);
+            this.txbPassword.Size = new System.Drawing.Size(94, 13);
             this.txbPassword.TabIndex = 1;
             // 
             // btnRegister
@@ -64,23 +64,24 @@ namespace CourtManagement.Login
             this.btnRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRegister.BackColor = System.Drawing.Color.Silver;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Location = new System.Drawing.Point(12, 75);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRegister.Location = new System.Drawing.Point(9, 61);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(116, 45);
+            this.btnRegister.Size = new System.Drawing.Size(87, 37);
             this.btnRegister.TabIndex = 2;
             this.btnRegister.Text = "Rejestracja";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnLogin
             // 
             this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogin.BackColor = System.Drawing.Color.Silver;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Location = new System.Drawing.Point(211, 75);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogin.Location = new System.Drawing.Point(158, 61);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(116, 45);
+            this.btnLogin.Size = new System.Drawing.Size(87, 37);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Zaloguj";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -89,27 +90,29 @@ namespace CourtManagement.Login
             // lbLogin
             // 
             this.lbLogin.AutoSize = true;
-            this.lbLogin.Location = new System.Drawing.Point(17, 17);
+            this.lbLogin.Location = new System.Drawing.Point(13, 14);
+            this.lbLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(123, 16);
+            this.lbLogin.Size = new System.Drawing.Size(102, 13);
             this.lbLogin.TabIndex = 4;
             this.lbLogin.Text = "Nazwa uzytkownika";
             // 
             // lbRegister
             // 
             this.lbRegister.AutoSize = true;
-            this.lbRegister.Location = new System.Drawing.Point(109, 38);
+            this.lbRegister.Location = new System.Drawing.Point(82, 31);
+            this.lbRegister.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbRegister.Name = "lbRegister";
-            this.lbRegister.Size = new System.Drawing.Size(46, 16);
+            this.lbRegister.Size = new System.Drawing.Size(36, 13);
             this.lbRegister.TabIndex = 5;
             this.lbRegister.Text = "Hasło";
             // 
             // FmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(339, 125);
+            this.ClientSize = new System.Drawing.Size(254, 102);
             this.Controls.Add(this.lbRegister);
             this.Controls.Add(this.lbLogin);
             this.Controls.Add(this.btnLogin);
@@ -117,7 +120,7 @@ namespace CourtManagement.Login
             this.Controls.Add(this.txbPassword);
             this.Controls.Add(this.txbLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FmLogin";
             this.Text = "Logowanie";
             this.ResumeLayout(false);

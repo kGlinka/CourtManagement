@@ -23,8 +23,7 @@ namespace CourtManagement.Reservation
         }
         private void RefreshData()
         {
-            string formattedDate = dateTimePickerReservation.Value.ToString("yyyy-MM-dd");
-            this.reservationSelectByDateTableAdapter.Fill(this.dsReservation.reservationSelectByDate, DateTime.Parse(formattedDate));
+            this.reservationSelectByDateTableAdapter.Fill(this.dsReservation.reservationSelectByDate, dateTimePickerReservation.Value.ToString("yyyy-MM-dd"));
             foreach (DataGridViewRow row in DgvReservation.Rows)
             {
                 // Pobieramy wartości z kolumn za pomocą indeksów
@@ -32,7 +31,7 @@ namespace CourtManagement.Reservation
                 var clientId = row.Cells[2].Value;    // Indeks 2 to kolumna "id_client"
 
                 // Sprawdzamy, czy rezerwacja jest ustawiona (is_reserved == 1)
-                if (isReserved != null && Convert.ToInt32(isReserved) == 1)
+                if (isReserved != null && isReserved != DBNull.Value && Convert.ToInt32(isReserved) == 1)
                 {
                     if (clientId != null && Convert.ToInt32(clientId) == GlobalVariables.System_User.UserId)
                     {
