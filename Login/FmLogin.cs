@@ -103,5 +103,10 @@ namespace CourtManagement.Login
             this.Close();
             this.DialogResult = DialogResult.OK;
         }
+
+        private void txbPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

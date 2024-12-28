@@ -56,8 +56,10 @@ namespace CourtManagement.Login
             this.txbPassword.Location = new System.Drawing.Point(122, 31);
             this.txbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txbPassword.Name = "txbPassword";
+            this.txbPassword.PasswordChar = '*';
             this.txbPassword.Size = new System.Drawing.Size(94, 13);
             this.txbPassword.TabIndex = 1;
+            this.txbPassword.TextChanged += new System.EventHandler(this.txbPassword_TextChanged);
             // 
             // btnRegister
             // 

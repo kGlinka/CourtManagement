@@ -64,6 +64,57 @@ namespace CourtManagement.Reservation
 
         private void toolStripMenuItemDeleteReservation_Click(object sender, EventArgs e)
         {
+            DeleteReservation();
+        }
+
+        private void DeleteReservation()
+        {
+            if (DgvReservation.SelectedRows.Count == 0)
+            {
+                Fmtoast.AddToQueue("WARRNING", "Proszę zaznaczyć rezerwację do usunięcia.", "Rezerwacja");
+                return;
+            }
+            
+            var selectedRows = DgvReservation.SelectedRows
+                .Cast<DataGridViewRow>()
+                .OrderBy(row => row.Index)
+                .ToList();
+            int? idReservation = null;
+
+            foreach (var row in selectedRows)
+            {
+                if (row.Cells[3].Value == null || row.Cells[2].Value == null
+                    || row.Cells[3].Value == DBNull.Value || row.Cells[3].Value == DBNull.Value
+                    || row.Cells[2].Value == null || row.Cells[2].ToString().Length <= 0)
+                {
+                    Fmtoast.AddToQueue("WARRNING", "Błędnie zaznaczono rezerację.", "Rezerwacja");
+                    return;
+                }
+
+                idReservation = (int)row.Cells[3].Value;
+                int clinetId = (int)row.Cells[2].Value;
+
+                if (GlobalVariables.System_User.ClientId != clinetId)
+                {
+                    Fmtoast.AddToQueue("WARRNING", "Możesz usuwać tylko własne rezerwacje.", "Rezerwacja");
+                    return;
+                }
+                    
+                var firstRow = selectedRows.First();
+                var lastRow = selectedRows.Last();
+            }
+
+            if(idReservation != null)
+            {
+                using (var dsLoginQueriesTableAdapter = new DsReservationTableAdapters.QueriesTableAdapter())
+                {
+                    dsLoginQueriesTableAdapter.reservationDelete(idReservation);
+                }
+            }
+
+            RefreshData();
+                
+            Fmtoast.AddToQueue("SUCCESS", "Usunięto rezerwację.", "Rezerwacja");
 
         }
 
@@ -132,7 +183,6 @@ namespace CourtManagement.Reservation
                     );
                 }
 
-                RefreshData();
 
                 // Wyświetlamy komunikat sukcesu
                 Fmtoast.AddToQueue("SUCCESS", "Dodano rezerwację.", "Rezerwacja");
@@ -141,6 +191,8 @@ namespace CourtManagement.Reservation
             {
                 Fmtoast.AddToQueue("WARRNING", "Błąd rezerwacji, spróbuj ponownie.", "Rezerwacja");
             }
+
+            RefreshData();
         }
     }
 }
