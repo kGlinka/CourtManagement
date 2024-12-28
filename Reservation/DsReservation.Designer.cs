@@ -279,13 +279,15 @@ namespace CourtManagement.Reservation {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class reservationSelectByDateDataTable : global::System.Data.TypedTableBase<reservationSelectByDateRow> {
             
-            private global::System.Data.DataColumn columntime_slot;
-            
             private global::System.Data.DataColumn columnis_reserved;
             
             private global::System.Data.DataColumn columnid_client;
             
             private global::System.Data.DataColumn columnid_reservation;
+            
+            private global::System.Data.DataColumn columntime_slot_from;
+            
+            private global::System.Data.DataColumn columntime_slot_to;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -322,14 +324,6 @@ namespace CourtManagement.Reservation {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn time_slotColumn {
-                get {
-                    return this.columntime_slot;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn is_reservedColumn {
                 get {
                     return this.columnis_reserved;
@@ -349,6 +343,22 @@ namespace CourtManagement.Reservation {
             public global::System.Data.DataColumn id_reservationColumn {
                 get {
                     return this.columnid_reservation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn time_slot_fromColumn {
+                get {
+                    return this.columntime_slot_from;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn time_slot_toColumn {
+                get {
+                    return this.columntime_slot_to;
                 }
             }
             
@@ -389,13 +399,14 @@ namespace CourtManagement.Reservation {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public reservationSelectByDateRow AddreservationSelectByDateRow(string time_slot, int is_reserved, int id_client, int id_reservation) {
+            public reservationSelectByDateRow AddreservationSelectByDateRow(int is_reserved, int id_client, int id_reservation, string time_slot_from, string time_slot_to) {
                 reservationSelectByDateRow rowreservationSelectByDateRow = ((reservationSelectByDateRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        time_slot,
                         is_reserved,
                         id_client,
-                        id_reservation};
+                        id_reservation,
+                        time_slot_from,
+                        time_slot_to};
                 rowreservationSelectByDateRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowreservationSelectByDateRow);
                 return rowreservationSelectByDateRow;
@@ -418,27 +429,32 @@ namespace CourtManagement.Reservation {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columntime_slot = base.Columns["time_slot"];
                 this.columnis_reserved = base.Columns["is_reserved"];
                 this.columnid_client = base.Columns["id_client"];
                 this.columnid_reservation = base.Columns["id_reservation"];
+                this.columntime_slot_from = base.Columns["time_slot_from"];
+                this.columntime_slot_to = base.Columns["time_slot_to"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columntime_slot = new global::System.Data.DataColumn("time_slot", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntime_slot);
                 this.columnis_reserved = new global::System.Data.DataColumn("is_reserved", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnis_reserved);
                 this.columnid_client = new global::System.Data.DataColumn("id_client", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_client);
                 this.columnid_reservation = new global::System.Data.DataColumn("id_reservation", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_reservation);
-                this.columntime_slot.ReadOnly = true;
-                this.columntime_slot.MaxLength = 5;
+                this.columntime_slot_from = new global::System.Data.DataColumn("time_slot_from", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntime_slot_from);
+                this.columntime_slot_to = new global::System.Data.DataColumn("time_slot_to", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntime_slot_to);
                 this.columnis_reserved.ReadOnly = true;
                 this.columnid_reservation.ReadOnly = true;
+                this.columntime_slot_from.ReadOnly = true;
+                this.columntime_slot_from.MaxLength = 5;
+                this.columntime_slot_to.ReadOnly = true;
+                this.columntime_slot_to.MaxLength = 5;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -581,22 +597,6 @@ namespace CourtManagement.Reservation {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string time_slot {
-                get {
-                    try {
-                        return ((string)(this[this.tablereservationSelectByDate.time_slotColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'time_slot\' in table \'reservationSelectByDate\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablereservationSelectByDate.time_slotColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int is_reserved {
                 get {
                     try {
@@ -646,14 +646,36 @@ namespace CourtManagement.Reservation {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Istime_slotNull() {
-                return this.IsNull(this.tablereservationSelectByDate.time_slotColumn);
+            public string time_slot_from {
+                get {
+                    try {
+                        return ((string)(this[this.tablereservationSelectByDate.time_slot_fromColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'time_slot_from\' in table \'reservationSelectByDate\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablereservationSelectByDate.time_slot_fromColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Settime_slotNull() {
-                this[this.tablereservationSelectByDate.time_slotColumn] = global::System.Convert.DBNull;
+            public string time_slot_to {
+                get {
+                    try {
+                        return ((string)(this[this.tablereservationSelectByDate.time_slot_toColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'time_slot_to\' in table \'reservationSelectByDate\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablereservationSelectByDate.time_slot_toColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -690,6 +712,30 @@ namespace CourtManagement.Reservation {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setid_reservationNull() {
                 this[this.tablereservationSelectByDate.id_reservationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istime_slot_fromNull() {
+                return this.IsNull(this.tablereservationSelectByDate.time_slot_fromColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settime_slot_fromNull() {
+                this[this.tablereservationSelectByDate.time_slot_fromColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Istime_slot_toNull() {
+                return this.IsNull(this.tablereservationSelectByDate.time_slot_toColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Settime_slot_toNull() {
+                this[this.tablereservationSelectByDate.time_slot_toColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -852,10 +898,11 @@ namespace CourtManagement.Reservation.DsReservationTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "reservationSelectByDate";
-            tableMapping.ColumnMappings.Add("time_slot", "time_slot");
             tableMapping.ColumnMappings.Add("is_reserved", "is_reserved");
             tableMapping.ColumnMappings.Add("id_client", "id_client");
             tableMapping.ColumnMappings.Add("id_reservation", "id_reservation");
+            tableMapping.ColumnMappings.Add("time_slot_from", "time_slot_from");
+            tableMapping.ColumnMappings.Add("time_slot_to", "time_slot_to");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -942,7 +989,7 @@ namespace CourtManagement.Reservation.DsReservationTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[2];
+            this._commandCollection = new global::System.Data.IDbCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::CourtManagement.Properties.Settings.Default.CourtManagementConnectionString);
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "dbo.reservationInsert";
@@ -958,6 +1005,16 @@ namespace CourtManagement.Reservation.DsReservationTableAdapters {
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).CommandType = global::System.Data.CommandType.StoredProcedure;
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[1])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_reservation", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Connection = new global::System.Data.SqlClient.SqlConnection(global::CourtManagement.Properties.Settings.Default.CourtManagementConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandText = "dbo.reservationValidate";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).CommandType = global::System.Data.CommandType.StoredProcedure;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_client", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_court", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reservation_start", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@reservation_end", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[2])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@error_message", global::System.Data.SqlDbType.VarChar, 500, global::System.Data.ParameterDirection.InputOutput, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1036,6 +1093,71 @@ namespace CourtManagement.Reservation.DsReservationTableAdapters {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object reservationValidate(global::System.Nullable<int> id_client, global::System.Nullable<int> id_court, global::System.Nullable<global::System.DateTime> reservation_start, global::System.Nullable<global::System.DateTime> reservation_end, ref string error_message) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[2]));
+            if ((id_client.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(id_client.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((id_court.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(id_court.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((reservation_start.HasValue == true)) {
+                command.Parameters[3].Value = ((System.DateTime)(reservation_start.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((reservation_end.HasValue == true)) {
+                command.Parameters[4].Value = ((System.DateTime)(reservation_end.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((error_message == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(error_message));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((command.Parameters[5].Value == null) 
+                        || (command.Parameters[5].Value.GetType() == typeof(global::System.DBNull)))) {
+                error_message = null;
+            }
+            else {
+                error_message = ((string)(command.Parameters[5].Value));
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {

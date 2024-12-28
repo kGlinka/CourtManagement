@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CourtManagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CourtManagementDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FmMain\FmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +127,17 @@
     <EmbeddedResource Include="Reservation\FmReservation.resx">
       <DependentUpon>FmReservation.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CourtManagementDataSet.xsc">
+      <DependentUpon>CourtManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CourtManagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CourtManagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CourtManagementDataSet.xss">
+      <DependentUpon>CourtManagementDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Login\DsLogin.xsc">
       <DependentUpon>DsLogin.xsd</DependentUpon>
     </None>

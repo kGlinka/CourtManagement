@@ -126,6 +126,8 @@ namespace CourtManagement.Reservation
                 return;
             }
 
+            string errorMessage = string.Empty;
+
             // Sortujemy zaznaczone wiersze według widocznej kolejności
             var selectedRows = DgvReservation.SelectedRows
                 .Cast<DataGridViewRow>()
@@ -175,6 +177,19 @@ namespace CourtManagement.Reservation
 
                 using (var dsLoginQueriesTableAdapter = new DsReservationTableAdapters.QueriesTableAdapter())
                 {
+                    dsLoginQueriesTableAdapter.reservationValidate(
+                        GlobalVariables.System_User.ClientId,
+                        idCourt,
+                        reservationStart,
+                        reservationEnd,
+                        ref errorMessage
+                        );
+                    if (errorMessage != null && !string.IsNullOrEmpty(errorMessage))
+                    {
+                        Fmtoast.AddToQueue("WARRNING", errorMessage, "Rezerwacja");
+                        RefreshData();
+                        return;
+                    }
                     dsLoginQueriesTableAdapter.reservationInsert(
                         idCourt,
                         GlobalVariables.System_User.ClientId,
@@ -182,7 +197,6 @@ namespace CourtManagement.Reservation
                         reservationEnd
                     );
                 }
-
 
                 // Wyświetlamy komunikat sukcesu
                 Fmtoast.AddToQueue("SUCCESS", "Dodano rezerwację.", "Rezerwacja");
